@@ -1,0 +1,68 @@
+version: "3.8"
+services:
+    synapse: 
+        image: matrixdotorg/synapse
+        networks: 
+            - "reverseproxy"
+            - "synapse"
+        volumes: 
+            - "/storage/docker/synapse/synapse/:/data/"
+        configs:
+            - source: "homeserver.yaml_2020-07-18"
+              target: "/config/homeserver.yaml"
+            - source: "log.config_2020-07-18"
+              target: "/config/homeserver.log.config"
+        secrets:
+            - "synapse_postgres_pw"
+            - "turn_shared_secret"
+            - "synapse_registration_shared_secret"
+            - "macaroon_secret_key"
+            - "synapse_form_secret"
+            - "synapse_signing_key"
+        environment:
+            - "SYNAPSE_CONFIG_PATH=/config/homeserver.yaml"
+    synapse-postgres:
+        image: postgres
+        volumes: 
+            - "/storage/docker/synapse/synapse-postgres/:/var/lib/postgresql/data/"
+        networks: 
+            - synapse
+        secrets:
+            - "synapse_postgres_pw"
+        environment: 
+            - 'POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C' 
+            - 'POSTGRES_USER=synapse'
+            - 'POSTGRES_PASSWORD_FILE=/run/secrets/synapse_postgres_pw'
+#    mautrix-whatsapp:
+#        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
+#        volumes: 
+#            - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+configs: 
+    homeserver.yaml_2020-07-18:
+        file: homeserver.yaml
+        template_driver: golang
+    log.config_2020-07-18:
+        file: homeserver.log.config
+secrets: 
+    synapse_postgres_pw:
+        name: synapse_postgres_pw
+        external: true
+    turn_shared_secret:
+        name: turn_shared_secret
+        external: true
+    synapse_registration_shared_secret:
+        name: synapse_registration_shared_secret
+        external: true
+    macaroon_secret_key:
+        name: macaroon_secret_key
+        external: true
+    synapse_form_secret:
+        name: synapse_form_secret
+        external: true
+    synapse_signing_key:
+        name: synapse_signing_key
+        external: true
+networks:
+    reverseproxy:
+        external: true
+    synapse:

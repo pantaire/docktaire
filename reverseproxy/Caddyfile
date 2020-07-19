@@ -1,0 +1,8 @@
+{
+    email letsencrypt@taire.de
+}
+
+swooty.taire.de {
+    header Strict-Transport-Security "max-age=31536000;"
+    reverse_proxy synapse:8008
+}

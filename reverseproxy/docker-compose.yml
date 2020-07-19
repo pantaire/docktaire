@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+
+        caddy: 
+                image: "docker.io/caddy:latest"
+                deploy: 
+                        replicas: 1
+                configs: 
+                        - source: "Caddyfile_2020-07-18"
+                          target: "/etc/caddy/Caddyfile"
+                volumes:
+                        - "/storage/docker/reverseproxy/caddy:/data"
+                ports:
+                        - "80:80"
+                        - "443:443"
+                networks:
+                        - "reverseproxy"
+configs: 
+        Caddyfile_2020-07-18:
+                file: ./Caddyfile
+
+networks:
+        reverseproxy:
+                external: true
