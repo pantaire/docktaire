@@ -36,12 +36,11 @@ services:
             - 'POSTGRES_USER=synapse'
             - 'POSTGRES_PASSWORD_FILE=/run/secrets/synapse_postgres_pw'
 
-    mautrix-whatsapp:
-        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
-        volumes: 
-            - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
-        restart: unless-stopped
-        
+#    mautrix-whatsapp:
+ #       image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
+  #      volumes: 
+   #         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+
 configs: 
     homeserver.yaml_2020-07-18:
         file: homeserver.yaml
