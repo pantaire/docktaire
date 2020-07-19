@@ -1,5 +1,6 @@
 version: "3.8"
 services:
+
     synapse: 
         image: matrixdotorg/synapse
         networks: 
@@ -21,6 +22,7 @@ services:
             - "synapse_signing_key"
         environment:
             - "SYNAPSE_CONFIG_PATH=/config/homeserver.yaml"
+
     synapse-postgres:
         image: postgres
         volumes: 
@@ -33,16 +35,20 @@ services:
             - 'POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C' 
             - 'POSTGRES_USER=synapse'
             - 'POSTGRES_PASSWORD_FILE=/run/secrets/synapse_postgres_pw'
-#    mautrix-whatsapp:
-#        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
-#        volumes: 
-#            - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+
+    mautrix-whatsapp:
+        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
+        volumes: 
+            - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+        restart: unless-stopped
+        
 configs: 
     homeserver.yaml_2020-07-18:
         file: homeserver.yaml
         template_driver: golang
     log.config_2020-07-18:
         file: homeserver.log.config
+
 secrets: 
     synapse_postgres_pw:
         name: synapse_postgres_pw
@@ -62,6 +68,7 @@ secrets:
     synapse_signing_key:
         name: synapse_signing_key
         external: true
+
 networks:
     reverseproxy:
         external: true
