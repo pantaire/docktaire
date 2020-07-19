@@ -2,9 +2,9 @@
     email letsencrypt@taire.de
 }
 
-swooty.taire.de {
+taire.de {
     header Strict-Transport-Security "max-age=31536000;"
-    reverse_proxy /_matrix/* synapse:8008
+    reverse_proxy /_matrix/* synapse_synapse:8008
     file_server
-    root * /www/swooty
+    root * /www/taire.de
 }
