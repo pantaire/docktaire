@@ -9,8 +9,8 @@ services:
                         - source: "Caddyfile_2020-07-18"
                           target: "/etc/caddy/Caddyfile"
                 volumes:
-                        - "/storage/docker/reverseproxy/caddy:/data"
-                        - "/storage/docker/reverseproxy/caddy:/www"
+                        - "/storage/docker/reverseproxy/caddy/data:/data"
+                        - "/storage/docker/reverseproxy/caddy/www:/www"
                 ports:
                         - "80:80"
                         - "443:443"
