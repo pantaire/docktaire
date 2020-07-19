@@ -6,7 +6,7 @@ services:
                 deploy: 
                         replicas: 1
                 configs: 
-                        - source: "Caddyfile_2020-07-8"
+                        - source: "Caddyfile_2020-07-18"
                           target: "/etc/caddy/Caddyfile"
                 volumes:
                         - "/storage/docker/reverseproxy/caddy/data:/data"
