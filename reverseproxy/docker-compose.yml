@@ -10,6 +10,7 @@ services:
                           target: "/etc/caddy/Caddyfile"
                 volumes:
                         - "/storage/docker/reverseproxy/caddy:/data"
+                        - "/storage/docker/reverseproxy/caddy:/www"
                 ports:
                         - "80:80"
                         - "443:443"
