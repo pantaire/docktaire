@@ -8,3 +8,8 @@ taire.de {
     file_server
     root * /www/taire.de
 }
+
+cloud.taire.de {
+    header Strict-Transport-Security "max-age=31536000;"
+    reverse_proxy cloud_nextcloud:80
+}
