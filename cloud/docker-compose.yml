@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+    mariadb:
+        image: mariadb
+        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+        volumes:
+            - /storage/docker/cloud/mariadb/var/lib/mysql:/var/lib/mysql
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=yes
+            - MYSQL_DATABASE=nextcloud
+            - MYSQL_USER=nextcloud
+        networks: 
+            - mariadb
+    nextcloud:
+        image: nextcloud
+        volumes:
+            - /storage/docker/cloud/nextcloud/var/www/html:/var/www/html
+            - /storage/docker/cloud/nextcloud/data:/data
+        networks: 
+            - mariadb
+            - reverseproxy
+
+networks:
+    mariadb: 
+    reverseproxy:
+        external: true 
