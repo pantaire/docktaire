@@ -19,7 +19,7 @@ services:
             - /storage/docker/blog/wordpress-mysql/var/lib/mysql:/var/lib/mysql
             - /storage/docker/blog/wordpress-mysql/:docker-entrypoint-initdb.d
         environment:
-            MYSQL_RANDOM_ROOT_PASSWORD: yes
+            MYSQL_RANDOM_ROOT_PASSWORD: "1"
             MYSQL_DATABASE: wordpress
             MYSQL_USER: wordpress
         networks: 
