@@ -1,0 +1,32 @@
+version: '3'
+
+services: 
+    wordpress:
+        image: wordpress
+        volumes: 
+            - /storage/docker/blog/wordpress/:/var/www/html
+        ports: 
+            - "8000:80"
+        depends_on: 
+            - wordpress-mysql
+        networks: 
+            - mariadb
+            - reverseproxy
+
+networks: 
+    mariadb:
+    reverseproxy:
+        external: true
+
+
+    wordpress-mysql:
+        image: mariadb
+        volumes: 
+            - /storage/docker/blog/wordpress-mysql/var/lib/mysql:/var/lib/mysql
+            - /storage/docker/blog/wordpress-mysql/:docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=yes
+            - MYSQL_DATABASE=wordpress
+            - MYSQL_USER=wordpress
+        networks: 
+            - mariadb

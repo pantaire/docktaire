@@ -13,3 +13,13 @@ cloud.taire.de {
     header Strict-Transport-Security "max-age=31536000;"
     reverse_proxy cloud_nextcloud:80
 }
+
+blog.taire.de {
+    header Strict-Transport-Security "max-age=31536000;"
+    reverse_proxy blog_wordpress:80
+}
+
+adven.taire.de {
+    header Strict-Transport-Security "max-age=31536000;"
+    reverse_proxy blog_wordpress:80
+}
