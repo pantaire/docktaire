@@ -12,6 +12,11 @@ services:
         networks: 
             - mariadb
             - reverseproxy
+        environment: 
+            WORDPRESS_DB_HOST: wordpress-mysql
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            WORDPRESS_DB_NAME: wordpress-mysql
 
     wordpress-mysql:
         image: mariadb
