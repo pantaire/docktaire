@@ -42,7 +42,7 @@ services:
    #         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
 
 configs: 
-    homeserver.yaml_2020-07-18:
+    homeserver.yaml_2020-08-08:
         file: homeserver.yaml
         template_driver: golang
     log.config_2020-07-18:
