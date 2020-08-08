@@ -9,7 +9,7 @@ services:
         volumes: 
             - "/storage/docker/synapse/synapse/:/data/"
         configs:
-            - source: "homeserver.yaml_2020-07-18"
+            - source: "homeserver.yaml_2020-08-08"
               target: "/config/homeserver.yaml"
             - source: "log.config_2020-07-18"
               target: "/config/homeserver.log.config"
