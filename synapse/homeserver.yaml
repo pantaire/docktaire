@@ -832,11 +832,11 @@ max_upload_size: 200M
 
 # The public URIs of the TURN server to give to clients
 #
-turn_uris: [ "turn:turn.taire.de:47366?transport=udp", "turn:turn.taire.de:47366?transport=tcp" ]
+turn_uris: [ "turn:turn.taire.de:63681?transport=udp", "turn:turn.taire.de:63681?transport=tcp" ]
 
 # The shared secret used to compute passwords for the TURN server
 #
-turn_shared_secret: "{{ secret "turn_shared_secret" }}"
+turn_shared_secret: "{{ secret "turn_shared_secret-2020-09-12" }}"
 
 # The Username and password if the TURN server needs them and
 # does not use a token

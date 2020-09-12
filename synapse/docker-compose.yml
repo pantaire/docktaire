@@ -9,7 +9,7 @@ services:
         volumes: 
             - "/storage/docker/synapse/synapse/:/data/"
         configs:
-            - source: "homeserver.yaml_2020-08-08"
+            - source: "homeserver.yaml_2020-12-09"
               target: "/config/homeserver.yaml"
             - source: "log.config_2020-07-18"
               target: "/config/homeserver.log.config"
@@ -42,7 +42,7 @@ services:
    #         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
 
 configs: 
-    homeserver.yaml_2020-08-08:
+    homeserver.yaml_2020-12-09:
         file: homeserver.yaml
         template_driver: golang
     log.config_2020-07-18:
