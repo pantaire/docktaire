@@ -9,13 +9,13 @@ services:
         volumes: 
             - "/storage/docker/synapse/synapse/:/data/"
         configs:
-            - source: "homeserver.yaml_2020-12-09"
+            - source: "homeserver.yaml_2020-09-12"
               target: "/config/homeserver.yaml"
             - source: "log.config_2020-07-18"
               target: "/config/homeserver.log.config"
         secrets:
             - "synapse_postgres_pw"
-            - "turn_shared_secret"
+            - "turn_shared_secret-2020-09-12-2020-09-12"
             - "synapse_registration_shared_secret"
             - "macaroon_secret_key"
             - "synapse_form_secret"
@@ -42,7 +42,7 @@ services:
    #         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
 
 configs: 
-    homeserver.yaml_2020-12-09:
+    homeserver.yaml_2020-09-12:
         file: homeserver.yaml
         template_driver: golang
     log.config_2020-07-18:
@@ -52,8 +52,8 @@ secrets:
     synapse_postgres_pw:
         name: synapse_postgres_pw
         external: true
-    turn_shared_secret:
-        name: turn_shared_secret
+    turn_shared_secret-2020-09-12:
+        name: turn_shared_secret-2020-09-12
         external: true
     synapse_registration_shared_secret:
         name: synapse_registration_shared_secret
