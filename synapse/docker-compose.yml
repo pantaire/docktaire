@@ -15,7 +15,7 @@ services:
               target: "/config/homeserver.log.config"
         secrets:
             - "synapse_postgres_pw"
-            - "turn_shared_secret-2020-09-12-2020-09-12"
+            - "turn_shared_secret-2020-09-12"
             - "synapse_registration_shared_secret"
             - "macaroon_secret_key"
             - "synapse_form_secret"
