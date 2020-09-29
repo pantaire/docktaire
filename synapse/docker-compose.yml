@@ -24,7 +24,7 @@ services:
             - "SYNAPSE_CONFIG_PATH=/config/homeserver.yaml"
 
     synapse-postgres:
-        image: postgres
+        image: postgres:12
         volumes: 
             - "/storage/docker/synapse/synapse-postgres/:/var/lib/postgresql/data/"
         networks: 
