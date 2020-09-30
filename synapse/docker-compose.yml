@@ -43,7 +43,10 @@ services:
     mautrix-whatsapp: 
         image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
         volumes: 
-        - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+            - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+        secrets:
+            - "mautrix-whatsapp_hs-token-2020-09-30"
+            - "mautrix-whatsapp_as-token-2020-09-30"
         configs:
             - source: "whatsapp-config.yaml_2020-09-30"
               target: "/data/config.yaml"
