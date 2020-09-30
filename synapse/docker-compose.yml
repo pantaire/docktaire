@@ -13,7 +13,7 @@ services:
               target: "/config/homeserver.yaml"
             - source: "log.config_2020-07-18"
               target: "/config/homeserver.log.config"
-            - source: "registration.yaml_2020-09-30"
+            - source: "whatsapp-registration.yaml_2020-09-30"
               target: "/config/registrations/mautrix-whatsapp.yaml"
         secrets:
             - "synapse_postgres_pw"
@@ -45,7 +45,7 @@ services:
         volumes: 
         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
         configs:
-            - source: "config.yaml_2020-09-30"
+            - source: "whatsapp-config.yaml_2020-09-30"
               target: "/data/config.yaml"
 
 configs: 
