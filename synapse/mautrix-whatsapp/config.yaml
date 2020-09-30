@@ -22,7 +22,7 @@ appservice:
   hs_token: {{ secret "mautrix-whatsapp_hs-token-2020-09-30" }}
 bridge:
   username_template: {{ "whatsapp_{{.}}" }}
-  displayname_template: {{ '{{if .Notify}}{{.Notify}}{{else}}{{.Jid}}{{end}} 👁️‍🗨️ ' }}
+  displayname_template: {{ "'{{if .Notify}}{{.Notify}}{{else}}{{.Jid}}{{end}} 👁️‍🗨️ '" }}
   community_template: {{ "whatsapp_{{.Localpart}}={{.Server}}" }}
   connection_timeout: 20
   login_qr_regen_count: 2
