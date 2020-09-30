@@ -21,9 +21,9 @@ appservice:
   as_token: {{ secret "mautrix-whatsapp_as-token-2020-09-30" }}
   hs_token: {{ secret "mautrix-whatsapp_hs-token-2020-09-30" }}
 bridge:
-  username_template: whatsapp_{{.}}
-  displayname_template: '{{if .Notify}}{{.Notify}}{{else}}{{.Jid}}{{end}} 👁️‍🗨️ '
-  community_template: whatsapp_{{.Localpart}}={{.Server}}
+  username_template: {{ "whatsapp_{{.}}" }}
+  displayname_template: {{ '{{if .Notify}}{{.Notify}}{{else}}{{.Jid}}{{end}} 👁️‍🗨️ ' }}
+  community_template: {{ "whatsapp_{{.Localpart}}={{.Server}}" }}
   connection_timeout: 20
   login_qr_regen_count: 2
   max_connection_attempts: 3
@@ -52,17 +52,17 @@ bridge:
     management: ""
     invites: []
     message_formats:
-      m.audio: <b>{{ .Sender.Displayname }}</b> sent an audio file
-      m.emote: '* <b>{{ .Sender.Displayname }}</b> {{ .Message }}'
-      m.file: <b>{{ .Sender.Displayname }}</b> sent a file
-      m.image: <b>{{ .Sender.Displayname }}</b> sent an image
-      m.location: <b>{{ .Sender.Displayname }}</b> sent a location
-      m.notice: '<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'
-      m.text: '<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'
-      m.video: <b>{{ .Sender.Displayname }}</b> sent a video
+      m.audio: {{ "<b>{{ .Sender.Displayname }}</b> sent an audio file" }}
+      m.emote: {{ "'* <b>{{ .Sender.Displayname }}</b> {{ .Message }}'" }}
+      m.file: {{ "<b>{{ .Sender.Displayname }}</b> sent a file" }}
+      m.image: {{ "<b>{{ .Sender.Displayname }}</b> sent an image" }}
+      m.location: {{ "<b>{{ .Sender.Displayname }}</b> sent a location" }}
+      m.notice: {{ "'<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'" }}
+      m.text: {{ "'<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'" }}
+      m.video: {{ "<b>{{ .Sender.Displayname }}</b> sent a video" }}
 logging:
   directory: ./logs
-  file_name_format: '{{.Date}}-{{.Index}}.log'
+  file_name_format: {{ "'{{.Date}}-{{.Index}}.log'" }}
   file_date_format: "2006-01-02"
   file_mode: 384
   timestamp_format: Jan _2, 2006 15:04:05
