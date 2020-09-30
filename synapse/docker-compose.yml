@@ -50,6 +50,8 @@ services:
         configs:
             - source: "whatsapp-config.yaml_2020-09-30"
               target: "/data/config.yaml"
+        networks: 
+            - "synapse"
 
 configs: 
     homeserver.yaml_2020-09-30:
