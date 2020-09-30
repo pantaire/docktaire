@@ -9,10 +9,12 @@ services:
         volumes: 
             - "/storage/docker/synapse/synapse/:/data/"
         configs:
-            - source: "homeserver.yaml_2020-09-12"
+            - source: "homeserver.yaml_2020-09-30"
               target: "/config/homeserver.yaml"
             - source: "log.config_2020-07-18"
               target: "/config/homeserver.log.config"
+            - source: "registration.yaml_2020-09-30"
+              target: "/config/registrations/mautrix-whatsapp.yaml"
         secrets:
             - "synapse_postgres_pw"
             - "turn_shared_secret-2020-09-12"
@@ -20,6 +22,8 @@ services:
             - "macaroon_secret_key"
             - "synapse_form_secret"
             - "synapse_signing_key"
+            - "mautrix-whatsapp_hs-token-2020-09-30"
+            - "mautrix-whatsapp_as-token-2020-09-30"
         environment:
             - "SYNAPSE_CONFIG_PATH=/config/homeserver.yaml"
 
@@ -36,17 +40,27 @@ services:
             - 'POSTGRES_USER=synapse'
             - 'POSTGRES_PASSWORD_FILE=/run/secrets/synapse_postgres_pw'
 
-#    mautrix-whatsapp:
- #       image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
-  #      volumes: 
-   #         - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+    mautrix-whatsapp: 
+        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
+        volumes: 
+        - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
+        configs:
+            - source: "config.yaml_2020-09-30"
+              target: "/data/config.yaml"
 
 configs: 
-    homeserver.yaml_2020-09-12:
+    homeserver.yaml_2020-09-30:
         file: homeserver.yaml
         template_driver: golang
     log.config_2020-07-18:
         file: homeserver.log.config
+    whatsapp-config.yaml_2020-09-30:
+        file: mautrix-whatsapp/config.yaml
+        template_driver: golang
+    whatsapp-registration.yaml_2020-09-30:
+        file: mautrix-whatsapp/registration.yaml
+        template_driver: golang
+
 
 secrets: 
     synapse_postgres_pw:
@@ -66,6 +80,12 @@ secrets:
         external: true
     synapse_signing_key:
         name: synapse_signing_key
+        external: true
+    mautrix-whatsapp_hs-token-2020-09-30:
+        name: mautrix-whatsapp_hs-token-2020-09-30
+        external: true
+    mautrix-whatsapp_as-token-2020-09-30:
+        name: mautrix-whatsapp_as-token-2020-09-30
         external: true
 
 networks:
