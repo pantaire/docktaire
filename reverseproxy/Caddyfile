@@ -21,6 +21,5 @@ cloud.taire.de {
 blog.taire.de {
     header Strict-Transport-Security "max-age=31536000;"
     file_server
-    reverse_proxy
     root * /www/blog.taire.de
 }
