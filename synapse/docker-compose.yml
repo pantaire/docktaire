@@ -42,7 +42,7 @@ services:
             - 'POSTGRES_PASSWORD_FILE=/run/secrets/synapse_postgres_pw'
 
     mautrix-whatsapp: 
-        image: "dock.mau.dev/tulir/mautrix-whatsapp:latest"
+        image: "dock.mau.dev/mautrix/mautrix-whatsapp:latest"
         volumes: 
             - "/storage/docker/synapse/mautrix-whatsapp/data/:/data"
         secrets:
