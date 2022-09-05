@@ -2,6 +2,11 @@
     email letsencrypt@taire.de
 }
 
+tue.re { 
+    header Strict-Transport-Security "max-age=31536000;"
+    redir https://taire.de
+}
+
 taire.de {
     header Strict-Transport-Security "max-age=31536000;"
     reverse_proxy /_matrix/* synapse_synapse:8008
