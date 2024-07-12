@@ -4,6 +4,12 @@
 
 taire.de {
     header Strict-Transport-Security "max-age=31536000;"
+    header /.well-known/matrix/* {
+        # should be specified according to matrix spec
+        Content-Type "application/json"
+        # is needed so web clients can access the client well-known
+        Access-Control-Allow-Origin "*"
+    }
     reverse_proxy /_matrix/* synapse_synapse:8008
     file_server
     root * /www/taire.de
