@@ -32,7 +32,7 @@ blog.taire.de {
 
 shop.taire.de {
     header Strict-Transport-Security "max-age=31536000;"
+    reverse_proxy shop_prestashop:8080
     file_server
     root * /www/shop.taire.de
-
 }
