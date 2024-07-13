@@ -33,6 +33,6 @@ blog.taire.de {
 shop.taire.de {
     header Strict-Transport-Security "max-age=31536000;"
     file_server
-    root * /www/blog.taire.de
+    root * /www/shop.taire.de
 
 }
