@@ -23,7 +23,7 @@ services:
       DB_USER: root
       DB_PASSWD: admin
       PS_INSTALL_AUTO: 1
-      PS_DOMAIN: shop.taire.de:8080
+      PS_DOMAIN: shop.taire.de
       PS_FOLDER_ADMIN: admintso1337
     networks:
       - prestashop_network
