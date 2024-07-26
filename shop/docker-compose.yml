@@ -12,6 +12,7 @@ services:
   prestashop:
     volumes:
       - "/storage/docker/shop/admintso1337:/admintso1337"
+      - "/storage/docker/shop/mysql:/var/lib/mysql"
     image: prestashop/prestashop:latest
     environment:
       DB_SERVER: mariadb
