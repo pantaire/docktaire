@@ -19,8 +19,8 @@ services:
     environment:
       DB_SERVER: shop_mysql
       DB_NAME: prestashop
-      DB_USER: root
-      DB_PASSWD: admin
+      DB_USER: mysql
+      DB_PASSWD: CLKJerjdOIJFdkIIJ
       PS_INSTALL_AUTO: 1
       PS_DOMAIN: shop.taire.de:8080
       PS_FOLDER_ADMIN: admintso1337
