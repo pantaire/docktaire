@@ -7,12 +7,13 @@ services:
       MARIADB_USER: prestashop
       MARIADB_PASSWORD: CLKJerjdOIJFdkIIJ
       MARIADB_DATABASE: prestashop
+    volumes:
+      - "/storage/docker/shop/mysql:/var/lib/mysql"
     networks:
       - prestashop_network
   prestashop:
     volumes:
       - "/storage/docker/shop/admintso1337:/admintso1337"
-      - "/storage/docker/shop/mysql:/var/lib/mysql"
     image: prestashop/prestashop:latest
     environment:
       DB_SERVER: mariadb
