@@ -3,8 +3,10 @@ services:
   mariadb:
     image: docker.io/mariadb:latest
     environment:
-      MYSQL_ROOT_PASSWORD: CLKJerjdOIJFdkIIJ
-      MYSQL_DATABASE: prestashop
+      MARIADB_ROOT_PASSWORD: CLKJerjdOIJFdkIIJ
+      MARIADB_USER: prestashop
+      MARIADB_PASSWORD: prestashop
+      MARIADB_DATABASE: prestashop
     networks:
       - prestashop_network
   prestashop:
@@ -14,7 +16,7 @@ services:
     environment:
       DB_SERVER: mariadb
       DB_NAME: prestashop
-      DB_USER: mysql
+      DB_USER: prestashop
       DB_PASSWD: CLKJerjdOIJFdkIIJ
       PS_INSTALL_AUTO: 1
       PS_DOMAIN: shop.taire.de:8080
