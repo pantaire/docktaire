@@ -4,7 +4,7 @@ services:
     container_name: shop_mysql
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: CLKJerjdOIJFdkIIJ
       MYSQL_DATABASE: prestashop
     networks:
       - prestashop_network
