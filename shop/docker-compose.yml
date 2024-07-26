@@ -5,7 +5,7 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: CLKJerjdOIJFdkIIJ
       MARIADB_USER: prestashop
-      MARIADB_PASSWORD: prestashop
+      MARIADB_PASSWORD: CLKJerjdOIJFdkIIJ
       MARIADB_DATABASE: prestashop
     networks:
       - prestashop_network
