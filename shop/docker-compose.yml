@@ -23,6 +23,7 @@ services:
       PS_DOMAIN: shop.taire.de:8080
       PS_FOLDER_ADMIN: admintso1337
       PS_FOLDER_INSTALL: admintso1337
+      PS_ENABLE_SSL: 1
       ADMIN_MAIL: shop@taire.de
     networks:
       - prestashop_network
