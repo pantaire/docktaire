@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  mariadb:
     image: docker.io/mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: CLKJerjdOIJFdkIIJ
@@ -12,7 +12,7 @@ services:
       - "/storage/docker/shop/admintso1337:/admintso1337"
     image: prestashop/prestashop:latest
     environment:
-      DB_SERVER: mysql
+      DB_SERVER: mariadb
       DB_NAME: prestashop
       DB_USER: mysql
       DB_PASSWD: CLKJerjdOIJFdkIIJ
