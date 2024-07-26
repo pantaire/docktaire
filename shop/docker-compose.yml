@@ -3,20 +3,19 @@ services:
   mysql:
     container_name: shop_mysql
     image: mysql:8.0
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: prestashop
     networks:
       - prestashop_network
   prestashop:
+    volumes:
+      - "/storage/docker/reverseproxy/caddy/data:/data"
+      - "/storage/docker/reverseproxy/caddy/www:/www"
+      - "/storage/docker/shop:/"
     container_name: prestashop
     image: prestashop/prestashop:latest
     restart: unless-stopped
-    depends_on:
-      - mysql
-    ports:
-      - 8080:80
     environment:
       DB_SERVER: shop_mysql
       DB_NAME: prestashop
@@ -26,7 +25,11 @@ services:
       PS_DOMAIN: shop.taire.de:8080
       PS_FOLDER_ADMIN: admintso1337
       PS_FOLDER_INSTALL: admintso1337
+      ADMIN_MAIL: shop@taire.de
     networks:
       - prestashop_network
+      - reverseproxy
 networks:
     prestashop_network:
+    reverseproxy:
+                external: true
