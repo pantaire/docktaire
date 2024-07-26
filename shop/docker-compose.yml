@@ -32,4 +32,4 @@ services:
 networks:
     prestashop_network:
     reverseproxy:
-                external: true
+      external: true
