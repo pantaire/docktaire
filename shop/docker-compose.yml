@@ -14,6 +14,7 @@ services:
   prestashop:
     volumes:
       - "/storage/docker/shop/admintso1337:/admintso1337"
+      - "/storage/docker/shop/installtso1337:/installtso1337"
     image: prestashop/prestashop:latest
     environment:
       DB_SERVER: mariadb
