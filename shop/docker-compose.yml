@@ -10,9 +10,7 @@ services:
       - prestashop_network
   prestashop:
     volumes:
-      - "/storage/docker/reverseproxy/caddy/data:/data"
-      - "/storage/docker/reverseproxy/caddy/www:/www"
-      - "/storage/docker/shop:/"
+      - "/storage/docker/shop/admintso1337:/admintso1337"
     container_name: prestashop
     image: prestashop/prestashop:latest
     restart: unless-stopped
