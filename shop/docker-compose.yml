@@ -21,7 +21,7 @@ services:
       DB_NAME: prestashop
       DB_USER: prestashop
       DB_PASSWD: CLKJerjdOIJFdkIIJ
-      PS_INSTALL_AUTO: 1
+      #PS_INSTALL_AUTO: 1
       PS_DOMAIN: shop.taire.de
       PS_FOLDER_ADMIN: admintso1337
       PS_FOLDER_INSTALL: installtso1337
