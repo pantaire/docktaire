@@ -9,6 +9,7 @@ services:
       MARIADB_DATABASE: prestashop
     volumes:
       - "/storage/docker/shop/mysql:/var/lib/mysql"
+      - "/storage/docker/shop/psdata:/var/www/html"
     networks:
       - prestashop_network
   prestashop:
