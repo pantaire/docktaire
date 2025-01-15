@@ -48,9 +48,6 @@ services:
         secrets:
             - "mautrix-whatsapp_hs-token-2020-09-30"
             - "mautrix-whatsapp_as-token-2020-09-30"
-        configs:
-            - source: "whatsapp-config.yaml_2020-09-30"
-              target: "/data/config.yaml"
         networks: 
             - "synapse"
 
@@ -60,9 +57,6 @@ configs:
         template_driver: golang
     log.config_2020-07-18:
         file: homeserver.log.config
-    whatsapp-config.yaml_2020-09-30:
-        file: mautrix-whatsapp/config.yaml
-        template_driver: golang
     whatsapp-registration.yaml_2020-09-30:
         file: mautrix-whatsapp/registration.yaml
         template_driver: golang
