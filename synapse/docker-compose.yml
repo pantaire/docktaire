@@ -28,7 +28,7 @@ services:
             - "SYNAPSE_CONFIG_PATH=/config/homeserver.yaml"
 
     synapse-postgres:
-        image: postgres:12
+        image: postgres:17
         command: -c 'shared_buffers=768MB' -c 'effective_cache_size=2048MB' -c 'work_mem=16MB' -c 'maintenance_work_mem=256MB'
         volumes: 
             - "/storage/docker/synapse/synapse-postgres/:/var/lib/postgresql/data/"
