@@ -6,5 +6,5 @@ sender_localpart: whatsappbot
 rate_limited: false
 namespaces:
   users:
-  - regex: ^@whatsapp_[0-9]+:taire.de$
+  - regex: ^@whatsapp_.+:taire.de$
     exclusive: true
